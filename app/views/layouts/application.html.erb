@@ -5,11 +5,41 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!--마테리얼 쓰기위해서 간단히설정, width를 디바이스의 width로 설정해주고 1배수로 하면 폰크기의 맞게 글자를 이쁘게조절해줌.-->  
+    
+    
+    <style>    
+  /*    nav ul li a{
+        color: black;
+      }    */
+    /*  $ primary-color : color ( "blue-gray", "lighten-2")! default; 
+$ primary-color-light : lighten ($ primary-color, 15 %)! default; 
+$ primary-color-dark : 어둡게 ($ primary-color, 15 %)! default;*/
+
+    </style>
   </head>
 
   <body>
+    <nav>
+      <div class="nav-wrapper blue lighten-2">
+        <a href="/" class="brand-logo center">동국트위터</a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+          <li><a href="/pictures">홈</a></li>
+          <!--로그인 되어있는지, 아닌지에 따라서 네비게이션 쪽 버튼을  다르게 구성함-->
+          <% if user_signed_in? %>
+            <li><%= current_user.name + "님"%></li>
+            <li><%= link_to '로그아웃', destroy_user_session_path, method: 'delete' %></li>
+          <% else %>
+            <li><a href="/users/sign_in">로그인</a></li>
+            <li><a href="/users/sign_up">회원가입</a></li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
     <%= yield %>
   </body>
 </html>

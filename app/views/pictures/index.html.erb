@@ -1,0 +1,61 @@
+<div class="grey lighten-2 ">
+    <div style="padding-left: 25px ">
+        <div class="row">
+            <div style="float: left;">
+                <div class="card">
+                    <div class="profile-image">
+                        
+                    </div>
+                    <div class="card-content">
+                        <div class="card-title"><%= current_user.name %></div>
+                        <p>이메일 : <%= current_user.email %></p>
+                        <p></p>
+                        <div class="wrapper">
+                            <span class="text-black-bold">트윗</span>
+                            <span class="text-black-bold">팔로워</span>
+                            <span class="text-black-bold">팔로윙</span>
+                        </div>
+                        <div class="wrapper">
+                            <span class="text-blue-bold"><%= @pictures_count %></span>
+                            <span class="text-blue-bold"><%= current_user.followers.length %></span>
+                            <span class="text-blue-bold"><%= current_user.myfollows.length %></span>
+                        </div>
+                      
+                    </div>
+                </div>
+            </div>
+            <div style="float: left; margin-left: 30px; width:50%">
+                <p> </p>
+                <p> </p>
+                <p> </p>
+                <%= link_to new_picture_path do %>
+                    <div style="blue; height: 60px; ">
+                        <div class="timeline-tweet-box">
+                            <div class="home-tweet-box tweet-user">
+                                <div style="width:5%; float: left;">
+                                    <img  src="https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png" alt="김호영">
+                                </div>
+                                <div class="tweet-text">무슨 일이 일어나고 있나요?</div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                <% end %>
+                
+                <br/>
+                <a href="/">
+                     <div class="tweet-new">새 트윗보기</div>
+                </a>
+               
+           
+            
+              
+                <% @pictures.each do |picture| %>
+                    <%= render partial: "picture", object: picture %>
+                <% end %>
+                
+            </div>
+        </div>
+    </div>
+</div>

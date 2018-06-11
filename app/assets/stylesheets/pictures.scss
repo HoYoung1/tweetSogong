@@ -1,0 +1,102 @@
+// Place all the styles related to the Pictures controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.pre-line {
+    white-space: pre-line;
+    border: 1px solid #ECECEC;
+    padding : 5px;
+    
+}
+
+.wrapper {
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   grid-template-rows: repeat(3, 10px);
+}
+
+.text-blue-bold {
+    font-weight: bold;
+    text-align: center;
+    color: blue;
+}
+
+.text-black-bold {
+    font-weight: bold;
+    text-align: center;
+    color: black;
+}
+
+.timeline-tweet-box {
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+    border: 1px solid #e6ecf0;
+    background-color: #E8F5FD;
+    height: 70px; 
+    width: 100%;
+}
+
+.home-tweet-box {
+    background-color: #E8F5FD;
+}
+
+.tweet-user {
+    padding: 10px 12px;
+    background-color: #f5f8fa;
+    border-radius: 0 0 5px 5px;
+}
+
+.tweet-text {
+    height: 50px;
+    padding : 15px;
+    
+    width: 90%;
+    border-radius: 15px;
+    border: 1px solid #e6ecf0;
+    background-color: #ffffff;
+    float: right;
+}
+
+.tweet-new {
+    height: 30px;
+    background-color: #E8F5FD;
+    color: blue;
+    text-align: center;
+    border-radius: 15px;
+    border: 1px solid #e6ecf0;
+    background-color: #bfbfbf;
+    padding-top: 3px;
+}
+
+.card-title-bold{
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.card-content-bold{
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.profile-image{
+    background-color: #008fd5;  
+    height: 150px;
+    
+}
+
+.btnall{
+ 
+    border-radius: 100px;
+    box-shadow: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 20px;
+    padding: 6px 16px;
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #fff;
+    border: 1px solid #1da1f2;
+    color: #1da1f2;
+}

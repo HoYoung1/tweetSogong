@@ -15,5 +15,11 @@ module DGUGallary
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+    config.time_zone = "Seoul"
   end
 end
+
+# <h1>현재시간 출력하는법</h1>
+# <% now = Time.zone.now %>
+# <%= now.strftime('%Y-%m-%d %H:%M:%S')%>
+# <!--출력결과 2018-06-01 22:57:59-->

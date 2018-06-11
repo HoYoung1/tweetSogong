@@ -1,0 +1,67 @@
+<script>
+function SirenFunction(idMyDiv){
+     var objDiv = document.getElementById(idMyDiv);
+     if(objDiv.style.display=="block"){ objDiv.style.display = "none"; }
+      else{ objDiv.style.display = "block"; }
+}
+</script>
+
+<div class="card">
+    <div class="card-content">
+        <span class="card-title-bold"><%= picture.user.name %></span>
+        <br/>
+        <span class="card-title-bold"><%= picture.created_at.in_time_zone('Seoul').strftime('%Y-%m-%d %H:%M:%S') %></span>
+        <% if user_signed_in? && current_user != picture.user %>
+            <% if current_user.myfollows.include?(picture.user) %>
+                <%= form_tag follow_path(picture.user.id), method: :delete, class: "right" do %>
+                  <button class="btnall">팔로우 취소</button>
+                <% end %>
+            <% else %>
+              <%= form_tag follows_path, method: :post, class: "right" do %>
+                <input type="hidden" name="followed_id" value="<%= picture.user.id %>">
+                <button class="btnall">팔로우</button>
+              <% end %>
+            <% end %>
+        <% end %>
+        <br/><br/><br/>
+        <p class="pre-line"><%= picture.content %></p>
+        <br>
+        <div class="btnall" onclick="SirenFunction('comments'); return false;">댓글 숨기기/보이기</div>
+        
+    </div>
+
+
+    <div class="card-action" id="comments">
+      
+        <!--사진 주인이 나라면 -->
+        <% if current_user.id == picture.user_id %>
+            <%= link_to "삭제", picture_path(picture), method: "delete", class: "right" %>
+            <%= link_to "수정", edit_picture_path(picture), class: "right" %>
+            <!--right는 우측정렬-->
+        <% end %>
+        <%= form_tag picture_comments_path(picture) do %>
+          <div class="input-field">
+            <%= text_area_tag :content, nil, class: "materialize-textarea", placeholder: "댓글을 작성해주세요.", required: true %>
+          </div>
+          <div class="input-field">
+            <%= button_tag "댓글 쓰기", class: "btnall" %>
+          </div>
+        <% end %>
+        
+        <!--picture이 존재할때만-->
+        <% if picture.comments.present? %>
+          <ul class="collection">
+          <% picture.comments.each do |comment| %>
+            <li class="collection-item">
+              <span class="title card-content-bold"><%= comment.user.name %></span>
+              <span class="right card-content-bold"><%= comment.created_at.in_time_zone('Seoul').strftime('%Y-%m-%d %H:%M:%S') %></span>
+              <p><%= comment.content %></p>
+              <% if comment.user.id == current_user.id %>
+                <div><%= link_to "삭제", picture_comment_path(picture, comment), method: "delete" %></div>
+              <% end %>
+            </li>
+          <% end %>
+          </ul>
+        <% end %>
+    </div>
+</div>
