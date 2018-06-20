@@ -1,5 +1,5 @@
 class PicturesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:justview]
   
   def index
     @pictures = Picture.all.order('created_at desc')
@@ -10,7 +10,7 @@ class PicturesController < ApplicationController
   end
   
   def create
-    new_picture= Picture.new(user_id: current_user.id, content: params[:content])
+    new_picture= Picture.new(user_id: current_user.id, content: params[:content], image: params[:image])
     if new_picture.save
       redirect_to root_path
     else
@@ -41,6 +41,10 @@ class PicturesController < ApplicationController
     
     @picture.destroy
     redirect_to root_path
+  end
+  
+   def justview
+    @pictures = Picture.all.order('created_at desc')
   end
   
 end

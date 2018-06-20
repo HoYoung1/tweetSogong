@@ -1,5 +1,8 @@
 <!--url : r^users/sign_in 맨처음 로그인페이지-->
-<div class="container">
+<div style="width: 50%; height:100%; float: left;">
+  <img  src="/tweeter.JPG" alt="logo">
+</div>
+<div class="container" style="width: 50%; height:100%; float: right; padding: 25px;">
   <h2>Log in</h2>
   
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -33,5 +36,11 @@
   <div>
     샘플 아이디 : rlaghdud8989@gmail.com 123789
   </div>
+  <p></p>
+  <p></p>
+
+
+  <p></p>
+  <%= link_to "로그인 없이 홈페이지 둘러보기", { :controller => "/pictures", :action => :justview }, { class: "btnall" } %>
   
 </div>
