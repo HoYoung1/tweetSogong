@@ -41,6 +41,7 @@ $ primary-color-dark : 어둡게 ($ primary-color, 15 %)! default;*/
           <% if user_signed_in? %>
             <li><%= current_user.name + "님"%></li>
             <li><%= link_to '로그아웃', destroy_user_session_path, method: 'delete' %></li>
+            <li><%= link_to '마이페이지',{ :controller => "/pictures", :action => :mypage } %> </li>
           <% else %>
             <li><a href="/users/sign_in">로그인</a></li>
             <li><a href="/users/sign_up">회원가입</a></li>

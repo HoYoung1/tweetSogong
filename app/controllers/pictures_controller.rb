@@ -43,8 +43,13 @@ class PicturesController < ApplicationController
     redirect_to root_path
   end
   
-   def justview
+  def justview
     @pictures = Picture.all.order('created_at desc')
+  end
+  
+  def mypage
+    @pictures = Picture.all.order('created_at desc')
+    @pictures_count = current_user.pictures.length
   end
   
 end

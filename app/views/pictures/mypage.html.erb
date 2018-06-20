@@ -10,7 +10,6 @@
                         <div class="card-title"><%= current_user.name %></div>
                         <p>이메일 : <%= current_user.email %></p>
                         <p></p>
-                        <br/>
                         <div class="wrapper">
                             <span class="text-black-bold">트윗</span>
                             <span class="text-black-bold">팔로워</span>
@@ -29,33 +28,19 @@
                 <p> </p>
                 <p> </p>
                 <p> </p>
-                <%= link_to new_picture_path do %>
-                    <div style="blue; height: 60px; ">
-                        <div class="timeline-tweet-box">
-                            <div class="home-tweet-box tweet-user">
-                                <div style="width:5%; float: left;">
-                                    <img  src="https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png" alt="김호영">
-                                </div>
-                                <div class="tweet-text">무슨 일이 일어나고 있나요?</div>
-                            </div>
-                            
-                        </div>
-                    </div>
-                    
-                <% end %>
-                
-                <br/>
-                <a href="/">
-                     <div class="tweet-new">새 트윗보기</div>
-                </a>
                
            
             
               
+            
+                
                 <% @pictures.each_with_index do |picture, index| %>
+                <% if current_user.myfollows.include?(picture.user) || current_user.id == picture.user.id%>
                     <%= render partial: "picture", object: picture, locals: { index: index } %>
-                    
                 <% end %>
+            <% end %>
+            
+           
                 
             </div>
         </div>
