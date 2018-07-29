@@ -9,9 +9,9 @@
 설명 : 팔로우 기능이 추가된 SNS입니다. 유튜브 플러리 영상을 보고 학습하며 만들었습니다. 
 
 <p>
-<img src="1.jpg" width ="250" >
-<img src="2.jpg"  width ="250">
+<img src="1.JPG" width ="250" >
+<img src="2.JPG"  width ="250">
 </p>
 <p>
-<img src="3.jpg" width ="250" >
+<img src="3.JPG" width ="250" >
 </p>
