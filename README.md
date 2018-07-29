@@ -11,7 +11,12 @@
 <p>
 <img src="1.JPG">
 </p>
-
-<img src="2.JPG"  width ="500">
-
-<img src="3.JPG" width ="500" >
+<그림1>
+<p>
+<img src="2.JPG" >
+</p>
+<그림2>
+<p>
+<img src="3.JPG"  >
+</p>
+<그림3>
